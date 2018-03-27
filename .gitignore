@@ -1,0 +1,4 @@
+node_modules
+curso-react-redux
+*.log
+.DS_Store
