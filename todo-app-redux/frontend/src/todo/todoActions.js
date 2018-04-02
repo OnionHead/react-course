@@ -16,10 +16,13 @@ export const search = () => {
 }
 
 export const add = (description) => {
-  const request = axios.post(`${URL}?sort=-createAt`, { description })
-
-  return {
-    type: 'TODO_ADDED',
-    payload: request
+  return dispatch => {
+    axios
+      .post(`${URL}?sort=-createAt`, { description })
+      .then(resp => dispatch({ 
+        type: 'TODO_ADDED', 
+        payload: resp.data 
+      }))
+      .then(resp => dispatch(search()))
   }
 }
