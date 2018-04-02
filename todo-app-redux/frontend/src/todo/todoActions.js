@@ -14,3 +14,12 @@ export const search = () => {
     payload: request
   }
 }
+
+export const add = (description) => {
+  const request = axios.post(`${URL}?sort=-createAt`, { description })
+
+  return {
+    type: 'TODO_ADDED',
+    payload: request
+  }
+}
